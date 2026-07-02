@@ -8,6 +8,8 @@
 
 body {
     font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, "MS PGothic", sans-serif;
+    line-height: 1.5;
+    font-size: 16px;
 }
 
 
@@ -166,28 +168,31 @@ mainvisual
 
     &__form {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        margin-inline: auto;
         width: 100%;
         max-width: 1000px;
         height: 70px;
-        padding: 0 10px 0 30px;
-        background-color: #fff;
+        padding: 0 40px 0 96px;
+        background: #fff;
         border-radius: 50px;
     }
 
     &__input {
-        font-size: 24px;
-        font-weight: bold;
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        text-align: left;
+        font-weight: 600;
     }
 
     &__button {
-        width: 180px;
+        flex-shrink: 0;
+        width: 56px;
         height: 56px;
         border: none;
-
-        font-size: 24px;
+        background: transparent;
         cursor: pointer;
     }
 }
@@ -220,18 +225,13 @@ mainvisual
 
         span {
             position: absolute;
-
             inset: 0;
-
             display: flex;
-
             justify-content: center;
-
             align-items: center;
-
             color: #fff;
-
             font-weight: bold;
+            font-size: 16px;
         }
 
         &--left {
@@ -305,5 +305,162 @@ mainvisual
 
     to {
         transform: translateX(calc(-100% / 2));
+    }
+}
+
+
+/* ----------------------------------------------------------------
+サービス
+----------------------------------------------------------------*/
+.service {
+    margin-top: 30px;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+
+        &-img {
+            padding: 220px 0;
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 25px;
+            position: sticky;
+            top: 0;
+        }
+    }
+
+    &__introduction {
+        padding: 280px 0;
+        display: grid;
+        row-gap: 120px;
+    }
+}
+
+.unit {
+    color: #0F3256;
+
+    &__title {
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    &__text {
+        margin-bottom: 35px;
+    }
+
+    &__btn {
+        position: relative;
+        padding: 10px 30px;
+        display: block;
+        margin-left: auto;
+        border: 1px solid #0F3256;
+        border-radius: 35px;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #e68e00;
+        }
+
+        &:hover::after {
+            transform: translateY(-50%) translateX(10px);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 1px;
+            background-color: #0F3256;
+            transition: transform 0.3s;
+        }
+    }
+}
+
+/* ----------------------------------------------------------------
+お知らせリスト
+----------------------------------------------------------------*/
+.news {
+    margin-top: 30px;
+    color: #0F3256;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__list {
+        display: grid;
+        gap: 50px;
+    }
+
+    &__item {
+        &-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .fa-arrow-right {
+            margin-left: auto;
+        }
+
+        &-date {
+            margin-right: 50px;
+            position: relative;
+            padding-right: 50px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                width: 1px;
+                height: 72px;
+                background-color: #0F3256;
+            }
+        }
+
+        &_year {
+            font-size: 16px;
+        }
+
+        &-day {
+            font-size: 32px;
+        }
+    }
+
+}
+
+
+.access {
+    &__inner {
+        @include inner();
+    }
+
+    &__unit {}
+
+    &__info {
+        position: relative;
+        background: #0F3256;
+        color: #E4E2DE;
+        width: calc(50% + 42px);
+        margin: -85px -7px 0 -35px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 110px 0 85px 95px;
+        text-align: left;
+        clip-path: polygon(15px 35px, calc(100% - 25px) 0, 100% 100%, 0% calc(100% - 30px));
     }
 }
