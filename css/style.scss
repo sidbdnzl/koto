@@ -1,15 +1,31 @@
 @use 'sass:math';
 
-@mixin inner($mw: 1000px, $w: 100%) {
+@mixin inner($mw: 1000px, $w: 90%) {
     max-width: $mw;
     width: $w;
-    margin-inline: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+$breakpoints: (
+    "tablet": 760px,
+);
+
+@mixin mq($breakpoint: desktop) {
+    @media (width <=map-get($breakpoints, $breakpoint)) {
+        @content;
+    }
 }
 
 body {
     font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, "MS PGothic", sans-serif;
     line-height: 1.5;
     font-size: 16px;
+    background-color: #E4E2DE;
+
+    @include mq(tablet) {
+        background-color: #0F3256
+    }
 }
 
 
@@ -34,6 +50,10 @@ header
         height: 85px;
         z-index: 1100;
 
+        @include mq(tablet) {
+            background-color: #E4E2DE;
+        }
+
         &-bar {
             display: grid;
             gap: 10px;
@@ -44,6 +64,10 @@ header
             transition: all 0.3s ease-in-out;
             left: 50%;
             top: 50%;
+
+            @include mq(tablet) {
+                background-color: #0F3256;
+            }
 
             &:nth-child(1) {
                 transform: translate(-50%, -12px);
@@ -58,16 +82,30 @@ header
 
                 &.active {
                     background-color: #0F3256;
+
+                    @include mq(tablet) {
+                        background-color: #E4E2DE;
+                    }
                 }
             }
+
+
         }
 
         &.active {
 
             background-color: #E4E2DE;
 
+            @include mq(tablet) {
+                background-color: #0F3256;
+            }
+
             .header__hamburger-bar {
                 background-color: #0F3256;
+
+                @include mq(tablet) {
+                    background-color: #E4E2DE;
+                }
             }
 
             .header__hamburger-bar:nth-child(1) {
@@ -83,6 +121,7 @@ header
             }
         }
     }
+
 }
 
 .gnav {
@@ -96,6 +135,10 @@ header
     transform: translateX(100%);
     transition: transform .4s ease;
     z-index: 1000;
+
+    @include mq(tablet) {
+        background-color: #E4E2DE;
+    }
 
     &.active {
         transform: translateX(0);
@@ -113,11 +156,19 @@ header
         font-weight: 600;
         transition: 0.3s;
 
+        @include mq(tablet) {
+            color: #0F3256;
+        }
+
         &::after {
             content: "";
             display: block;
             width: 270px;
             border-bottom: 1px solid #E4E2DE;
+
+            @include mq(tablet) {
+                background-color: #0F3256;
+            }
         }
 
         &:hover {
@@ -128,19 +179,12 @@ header
 
 
 /* ----------------------------------------------------------------
-main
-----------------------------------------------------------------*/
-.main {
-    background-color: #E4E2DE;
-}
-
-
-/* ----------------------------------------------------------------
 mainvisual
 ----------------------------------------------------------------*/
 
 .mainvisual {
     background: url(../images/batako.png) no-repeat center center/cover;
+    width: 100%;
     height: 90vh;
 
     &__inner {
@@ -156,6 +200,10 @@ mainvisual
     color: #0F3256;
     text-align: center;
 
+    @include mq(tablet) {
+        color: #E4E2DE
+    }
+
     &__inner {
         @include inner();
     }
@@ -164,6 +212,11 @@ mainvisual
         font-size: 50px;
         font-weight: bold;
         margin: 40px 0 60px 0;
+
+        @include mq(tablet) {
+            font-size: 24px;
+            margin: 30px 0;
+        }
     }
 
     &__form {
@@ -347,6 +400,10 @@ mainvisual
 .unit {
     color: #0F3256;
 
+    @include mq(tablet) {
+        color: #E4E2DE;
+    }
+
     &__title {
         margin-bottom: 20px;
         font-size: 24px;
@@ -367,6 +424,10 @@ mainvisual
         transition: 0.3s;
         cursor: pointer;
 
+        @include mq(tablet) {
+            border-color: #E4E2DE;
+        }
+
         &:hover {
             background-color: #e68e00;
         }
@@ -385,6 +446,10 @@ mainvisual
             height: 1px;
             background-color: #0F3256;
             transition: transform 0.3s;
+
+            @include mq(tablet) {
+                background-color: #E4E2DE;
+            }
         }
     }
 }
@@ -395,6 +460,10 @@ mainvisual
 .news {
     margin-top: 30px;
     color: #0F3256;
+
+    @include mq(tablet) {
+        color: #E4E2DE
+    }
 
     &__inner {
         @include inner();
@@ -429,6 +498,10 @@ mainvisual
                 width: 1px;
                 height: 72px;
                 background-color: #0F3256;
+
+                @include mq(tablet) {
+                    background-color: #E4E2DE;
+                }
             }
         }
 
@@ -444,23 +517,127 @@ mainvisual
 }
 
 
+/* ----------------------------------------------------------------
+アクセス
+----------------------------------------------------------------*/
+
 .access {
+    margin-top: 250px;
+    padding-bottom: 250px;
+
+    @include mq(tablet) {
+        margin-top: 150px;
+        padding: 150px 0;
+        background-color: #E4E2DE
+    }
+
     &__inner {
         @include inner();
     }
 
-    &__unit {}
+    &__unit {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        @include mq(tablet) {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+
+    &__map {
+        width: 100%;
+        position: relative;
+        z-index: 2;
+
+        @include mq(tablet) {
+            margin-top: 100px;
+        }
+    }
+
+    &__frame {
+        width: 530px;
+        height: 500px;
+        border: none;
+        display: block;
+
+        @include mq(tablet) {
+            width: 100%;
+            height: 400px; // お好みで調整
+        }
+    }
 
     &__info {
+        display: grid;
+        gap: 22px;
         position: relative;
-        background: #0F3256;
+        background-color: #0F3256;
         color: #E4E2DE;
-        width: calc(50% + 42px);
-        margin: -85px -7px 0 -35px;
-        -webkit-box-sizing: border-box;
+        width: 100%;
+        margin: -105px -7px 0 -85px;
+        padding: 95px 95px 95px 140px;
         box-sizing: border-box;
-        padding: 110px 0 85px 95px;
-        text-align: left;
         clip-path: polygon(15px 35px, calc(100% - 25px) 0, 100% 100%, 0% calc(100% - 30px));
+
+        @include mq(tablet) {
+            background-color: transparent;
+            color: #0F3256;
+            padding: 0;
+            margin: 0;
+            clip-path: none;
+        }
+
+
+        &-img {
+            max-width: 100%;
+        }
+
+        &-address {
+            font-weight: 600;
+        }
+
+        &-tel {
+            font-weight: 600;
+        }
+    }
+
+    &__methods {
+        margin-top: 100px;
+        color: #0F3256;
+        display: grid;
+        gap: 70px;
+    }
+
+    &__method {
+        &-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        &-text {
+            margin-top: 20px;
+        }
+    }
+}
+
+
+/* ----------------------------------------------------------------
+footer
+----------------------------------------------------------------*/
+
+.footer {
+    padding: 30px;
+    background-color: #0F3256;
+    display: block;
+    text-align: center;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__copy {
+        font-weight: bold;
+        color: #E4E2DE;
     }
 }
