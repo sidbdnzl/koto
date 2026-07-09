@@ -6,30 +6,42 @@ hamburger.addEventListener("click", () => {
     gnav.classList.toggle("active");
 });
 
+const Mobileswiper = new Swiper('.mobile__swiper', {
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: true,
+    },
+    pagination: {
+        el: '.mobile__swiper-pagination',
+        clickable: true,
+    },
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const swiper = new Swiper('.swiper', {
+const Modalswiper = new Swiper('.modalswiper', {
     autoplay: {
         delay: 2500,
         disableOnInteraction: true,
     },
     pagination: {
-        el: '.swiper-pagination',
+        el: '.modalpagenation',
         clickable: true,
     },
+});
+
+
+document.querySelectorAll(".faq__item").forEach(item => {
+    const unit = item.querySelector(".faq__unit");
+    const icon = item.querySelector("i");
+
+    unit.addEventListener("click", () => {
+        item.classList.toggle("active");
+
+        if (item.classList.contains("active")) {
+            icon.classList.replace("fa-plus", "fa-minus");
+        } else {
+            icon.classList.replace("fa-minus", "fa-plus");
+        }
+    });
 });
 
 
