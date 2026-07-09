@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <button type="button" class="header__hamburger" id="hamburger">
+                <span class="header__hamburger-bar"></span>
+                <span class="header__hamburger-bar"></span>
+                <span class="header__hamburger-bar"></span>
+            </button>
+
+
+            <nav class="gnav">
+                <ul class="gnav__list">
+                    <li class="gnav__item">
+                        <a href="#">トップページ</a>
+                    </li>
+                    <li class="gnav__item">
+                        <a href="#">イベント</a>
+                    </li>
+                    <li class="gnav__item">
+                        <a href="#">コトづくりについて</a>
+                    </li>
+                    <li class="gnav__item">
+                        <a href="#">出店について</a>
+                    </li>
+                    <li class="gnav__item">
+                        <a href="#">お問い合わせ</a>
+                    </li>
+                    <li class="gnav__item">
+                        <a href="#">よくある質問</a>
+                    </li>
+                    <li class="gnav__item">
+                        <a href="#">アクセス</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="contact">
+            <div class="contact__inner">
+                <h2 class="contact__title">お問い合わせ</h2>
+                <form class="contact__form" action="">
+                    <fieldset class="contact__unit">
+                        <legend class="contact__unit-label">
+                            過去の参加回数<span class="contact__unit-label-required">必須</span>
+                        </legend>
+
+                        <div class="contact__unit-radio">
+                            <div class="contact__unit-content">
+                                <input class="contact__unit-check" type="radio" id="once" name="count" value="once"
+                                    checked />
+                                <label class="contact__unit-txt" for="once">初めて</label>
+                            </div>
+                            <div class="contact__unit-content">
+                                <input class="contact__unit-check" type="radio" id="little" name="count"
+                                    value="little" />
+                                <label class="contact__unit-txt" for="little">2~5回参加したことがある</label>
+                            </div>
+                            <div class="contact__unit-content">
+                                <input class="contact__unit-check" type="radio" id="many" name="count" value="many" />
+                                <label class="contact__unit-txt" for="many">5回以上参加したことがある</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="contact__unit">
+                        <p class="contact__unit-label">
+                            お名前
+                            <span class="contact__unit-label-required">必須</span>
+                        </p>
+                        <input type="text" class="contact__unit-input" placeholder="例）山田太郎">
+                    </div>
+                    <div class="contact__unit">
+                        <p class="contact__unit-label">
+                            電話番号
+                            <span class="contact__unit-label-required">必須</span>
+                        </p>
+                        <input type="text" class="contact__unit-input" placeholder="例）000-000-0000">
+                    </div>
+                    <div class="contact__unit">
+                        <p class="contact__unit-label">
+                            メールアドレス
+                            <span class="contact__unit-label-required">必須</span>
+                        </p>
+                        <input type="email" class="contact__unit-input" placeholder="例）example@gmail.com">
+                    </div>
+                    <div class="contact__unit">
+                        <p class="contact__unit-label">
+                            会社名
+                            <span class="contact__unit-label-required">必須</span>
+                        </p>
+                        <input type="text" class="contact__unit-input" placeholder="例）株式会社令和">
+                    </div>
+                    <div class="contact__unit">
+                        <p class="contact__unit-label">
+                            会社名
+                            <span class="contact__unit-label-required">必須</span>
+                        </p>
+                        <input type="text" class="contact__unit-input" placeholder="例）株式会社令和">
+                    </div>
+                    <div class="contact__unit">
+                        <p class="contact__unit-label">
+                            会社名
+                            <span class="contact__unit-label-required">必須</span>
+                        </p>
+                        <textarea class="contact__unit-textarea"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer"></footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
