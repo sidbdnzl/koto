@@ -1,6 +1,6 @@
 @use 'sass:math';
 
-@mixin inner($mw: 1000px, $w: 100%) {
+@mixin inner($mw: 1000px, $w: 90%) {
     max-width: $mw;
     width: $w;
     margin-inline: auto;
@@ -8,6 +8,22 @@
 
 body {
     font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, "MS PGothic", sans-serif;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+$breakpoints: (
+    "tablet": 760px,
+);
+
+@mixin mq($breakpoint: tablet) {
+    @media (width <=map-get($breakpoints, $breakpoint)) {
+        @content;
+    }
 }
 
 
@@ -305,5 +321,489 @@ mainvisual
 
     to {
         transform: translateX(calc(-100% / 2));
+    }
+}
+
+
+
+
+
+
+
+// *-------------------------------------
+// ここから俺が書く
+// -------------------------------------*
+
+.events {
+    padding: 250px 0;
+    background-color: #E4E2DE;
+
+    @include mq() {
+        background-color: #0F3256;
+    }
+
+    &__inner {
+        @include inner();
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px 40px;
+
+        @include mq() {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px 20px;
+        }
+    }
+
+    &__item {
+        position: relative;
+        width: fit-content;
+
+        &-pic-src {
+            border-radius: 25px;
+        }
+
+        &-text {
+            width: 100%;
+            padding: 15px;
+            color: #fff;
+            background-color: #42759FB3;
+            border-bottom-right-radius: 25px;
+            border-bottom-left-radius: 25px;
+            position: absolute;
+            bottom: 0;
+            z-index: 999;
+            box-sizing: border-box;
+
+
+        }
+
+        &-title {
+            font-size: 20px;
+            font-weight: bold;
+
+            @include mq() {
+                font-size: 16px;
+            }
+        }
+
+        &-date {
+            font-weight: bold;
+
+            @include mq() {
+                font-size: 14px;
+            }
+        }
+
+        &-link {
+            margin-top: 5px;
+        }
+
+        &-link-src {
+            display: inline-block;
+            margin: 5px 10px 0 0;
+        }
+
+    }
+}
+
+// *-------------------------------------
+// モーダル
+// -------------------------------------*
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#0F3256, 0.7); // 背景を暗く
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+
+    // 初期状態は非表示
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    // JavaScriptでこのクラスがついたら表示
+    &.is-open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.modal {
+    position: relative; // ×ボタンの基準位置にするため追加
+    padding: 50px;
+    color: #0F3256;
+    background-color: #E4E2DE;
+    border-radius: 25px;
+    max-width: 1000px; // 画面からはみ出さないようにお好みの幅を設定
+    width: 90%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+
+    @include mq() {
+        padding: 30px 15px;
+    }
+
+
+    &__scroll-area {
+        overflow-y: auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__close {
+        position: absolute;
+
+        top: -25px;
+        right: -25px;
+        width: 85px;
+        height: 85px;
+        z-index: 999999;
+        background-color: #0F3256;
+        border: none;
+        border-radius: 100%;
+        cursor: pointer;
+
+        @include mq() {
+            width: 60px;
+            height: 60px;
+
+
+            //ばつの位置をきく！！！！
+            top: -25px;
+            right: 0;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 2px;
+
+            background-color: #E4E2DE;
+
+            @include mq() {
+                width: 30px;
+            }
+
+        }
+
+        // 【修正点】SCSSのネスト内なので、クラス名を書かずにそのまま&で繋ぎます
+        &::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+
+    &__inner {
+        @include inner();
+    }
+
+    &__column {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: start;
+        column-gap: 30px;
+
+        @include mq() {
+            grid-template-columns: none;
+        }
+    }
+
+    &__date {
+        font-weight: bold;
+    }
+
+    &__title {
+        margin-top: 10px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    &__pic-src {
+        border-radius: 25px;
+    }
+
+    &__text {
+        @include mq() {
+            margin-top: 30px;
+        }
+    }
+
+    &__link {
+
+        margin-top: 30px;
+
+        @include mq() {
+            margin-top: 20px;
+        }
+
+        &-src {
+            display: inline-block;
+            margin: 10px 20px 0 0;
+        }
+    }
+
+    &__comments {
+        margin-top: 30px;
+        display: grid;
+        row-gap: 25px;
+
+        @include mq() {
+            row-gap: 15px;
+        }
+
+        &-comment {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: top;
+
+            &:nth-child(even) {
+                grid-template-columns: auto 1fr;
+                order: 1;
+
+                .modal__comments-comment-icon {
+                    order: 2;
+                }
+
+                .modal__comments-comment-text {
+                    order: 1;
+                    margin-left: 0;
+                    margin-right: 10px;
+
+                    &::after {
+                        left: auto;
+                        right: -5%;
+                        transform: rotate(-90deg);
+
+                        @include mq() {
+                            right: -8%;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-comment-icon {
+            margin-top: 10px;
+            width: 60px;
+            height: auto;
+        }
+
+        &-comment-text {
+            margin-left: 10px;
+            background-color: #fff;
+            padding: 15px 30px;
+            border-radius: 25px;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: -5%;
+                top: 25px;
+                transform: rotate(90deg);
+                border: 10px solid transparent;
+                border-top: 15px solid #fff;
+
+                @include mq() {
+                    left: -8%;
+                }
+            }
+        }
+    }
+}
+
+// *-------------------------------------
+// スワイパー
+// -------------------------------------*
+
+.swiper {
+    width: 100%;
+    height: auto;
+    padding-bottom: 40px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9/6;
+    object-fit: cover;
+}
+
+.swiper-pagination-bullet {
+    background-color: #0B3254;
+    opacity: 100%;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #e68e00;
+    z-index: 999;
+}
+
+
+// *-------------------------------------
+// お問い合わせ
+// -------------------------------------*
+
+
+.contact {
+    padding: 250px 0;
+    color: #0B3254;
+    background: #E4E2DE;
+
+    @include mq() {
+        padding: 70px 0;
+        color: #E4E2DE;
+        background: #0B3254;
+    }
+
+    &__inner {
+        @include inner();
+
+    }
+
+    &__title {
+        font-size: 32px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    &__form {
+        margin-top: 80px;
+        display: grid;
+        row-gap: 60px;
+
+        @include mq() {
+            margin-top: 50px;
+            row-gap: 40px;
+        }
+    }
+
+    &__unit {
+        border: none;
+        padding: 0;
+
+        &-label {
+            display: inline-flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        &-label-required {
+            margin-left: 10px;
+            padding: 5px 10px;
+            color: #E4E2DE;
+            background-color: #0B3254;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 10px;
+
+            @include mq() {
+                color: #0B3254;
+                background: #E4E2DE;
+            }
+        }
+
+        &-input {
+            width: 100%;
+            margin-top: 15px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+
+            &::placeholder {
+                color: rgba(#0B3254, 0.7);
+                opacity: 1; // Firefoxで薄くなりすぎるのを防ぐための設定
+            }
+        }
+
+        &-textarea {
+            width: 100%;
+            height: 300px;
+            margin-top: 15px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+        }
+
+        &-radio {
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            margin-top: 15px;
+        }
+
+        &-content {
+            display: flex;
+            align-items: center;
+        }
+
+        &-txt {
+            display: flex;
+            font-size: 16px;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            padding-left: 25px;
+
+            &::before,
+            &::after {
+                border-radius: 50%;
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                box-sizing: border-box;
+            }
+
+            &::before {
+                width: 15px;
+                height: 15px;
+                border: 2px solid #0B3254;
+
+                @include mq() {
+                    border: 2px solid #E4E2DE;
+                }
+            }
+
+            // 【下：押したとき用】初期状態は隠す
+            &::after {
+                width: 15px;
+                height: 15px;
+                background-color: #0B3254;
+                transform: translateY(-50%) scale(0);
+
+                @include mq() {
+                    background-color: #E4E2DE;
+                }
+            }
+        }
+
+        /* ラジオボタンが押された時（checked）の動き */
+        &-check:checked+&-txt {
+            &::after {
+                transform: translateY(-50%) scale(1);
+                animation: anim-radio-2 .3s linear;
+            }
+        }
     }
 }
