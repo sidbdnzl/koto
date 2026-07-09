@@ -28,6 +28,10 @@ body {
     }
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 
 /* ----------------------------------------------------------------
 header
@@ -52,6 +56,9 @@ header
 
         @include mq(tablet) {
             background-color: #E4E2DE;
+            top: auto;
+            bottom: 30px;
+            right: 30px;
         }
 
         &-bar {
@@ -167,7 +174,7 @@ header
             border-bottom: 1px solid #E4E2DE;
 
             @include mq(tablet) {
-                background-color: #0F3256;
+                border-color: #0F3256;
             }
         }
 
@@ -388,6 +395,10 @@ mainvisual
             position: sticky;
             top: 0;
         }
+
+        @include mq(tablet) {
+            display: none;
+        }
     }
 
     &__introduction {
@@ -420,6 +431,7 @@ mainvisual
         display: block;
         margin-left: auto;
         border: 1px solid #0F3256;
+        width: fit-content;
         border-radius: 35px;
         transition: 0.3s;
         cursor: pointer;
@@ -454,6 +466,93 @@ mainvisual
     }
 }
 
+.service-card {
+    margin-top: 150px;
+
+    &__img {
+        border-radius: 10px;
+    }
+
+    &__title {
+        margin-top: 55px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #E4E2DE;
+    }
+
+
+    &__text {
+        margin-top: 20px;
+        font-size: 16px;
+        color: #E4E2DE;
+    }
+
+    &__btn {
+        margin: 35px 20px 0 auto;
+        position: relative;
+        padding: 10px 30px;
+        display: block;
+        border: 1px solid #E4E2DE;
+        color: #E4E2DE;
+        width: fit-content;
+        border-radius: 35px;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #e68e00;
+        }
+
+        &:hover::after {
+            transform: translateY(-50%) translateX(10px);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 1px;
+            background-color: #E4E2DE;
+            transition: transform 0.3s;
+        }
+    }
+}
+
+.service__swiper {
+    display: none;
+
+    @include mq(tablet) {
+        display: block;
+    }
+}
+
+
+.swiper {
+    width: 100%;
+    height: auto;
+    padding-bottom: 40px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9/6;
+    object-fit: cover;
+}
+
+.swiper-pagination-bullet {
+    background-color: #E4E2DE;
+    opacity: 100%;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #e68e00;
+    z-index: 999;
+}
+
 /* ----------------------------------------------------------------
 お知らせリスト
 ----------------------------------------------------------------*/
@@ -462,6 +561,7 @@ mainvisual
     color: #0F3256;
 
     @include mq(tablet) {
+        margin-top: 150px;
         color: #E4E2DE
     }
 
@@ -632,6 +732,10 @@ footer
     display: block;
     text-align: center;
 
+    @include mq(tablet) {
+        background-color: #E4E2DE
+    }
+
     &__inner {
         @include inner();
     }
@@ -639,5 +743,126 @@ footer
     &__copy {
         font-weight: bold;
         color: #E4E2DE;
+
+        @include mq(tablet) {
+            color: #0F3256;
+        }
+    }
+}
+
+.footertop {
+    padding: 30px;
+    background-color: #0F3256;
+    display: block;
+    text-align: center;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__copy {
+        font-weight: bold;
+        color: #E4E2DE;
+    }
+}
+
+
+/* ----------------------------------------------------------------
+よくある質問
+----------------------------------------------------------------*/
+
+.faq {
+    margin: 250px 0;
+
+    @include mq(tablet) {
+        margin-top: 150px;
+    }
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        font-size: 32px;
+        font-weight: bold;
+        color: #0F3256;
+        text-align: center;
+
+        @include mq(tablet) {
+            color: #E4E2DE;
+            font-size: 19px;
+        }
+    }
+
+    &__items {
+        margin-top: 80px;
+        display: grid;
+        gap: 40px;
+    }
+
+    &__item {
+        border: 1px solid #0F3256;
+        border-radius: 15px;
+        overflow: hidden;
+
+        @include mq(tablet) {
+            border-color: #E4E2DE;
+        }
+
+        &.active {
+            .faq__unit {
+                border-radius: 15px 15px 0 0;
+            }
+
+            .faq__text {
+                max-height: 500px;
+                padding: 45px 60px;
+                border-top: 1px solid #0F3256;
+            }
+        }
+    }
+
+    &__unit {
+        background: #0F3256;
+        color: #E4E2DE;
+        padding: 20px 25px;
+        font-size: 21px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: transform .4s ease;
+
+        @include mq(tablet) {
+            background-color: #E4E2DE;
+            color: #0F3256;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        &:hover {
+            color: #e68e00;
+        }
+    }
+
+    &__text {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 60px;
+        border-top: 0;
+        color: #0F3256;
+        font-size: 21px;
+        font-weight: bold;
+        transition:
+            max-height .4s ease,
+            padding .4s ease,
+            border-top .4s ease;
+
+        @include mq(tablet) {
+            color: #E4E2DE;
+            font-size: 18px;
+            font-weight: 600;
+        }
     }
 }

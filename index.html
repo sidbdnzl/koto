@@ -7,6 +7,7 @@
     <title>コトづくり研究所</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -23,7 +24,7 @@
             <nav class="gnav">
                 <ul class="gnav__list">
                     <li class="gnav__item">
-                        <a href="#">トップページ</a>
+                        <a href="./index.html">トップページ</a>
                     </li>
                     <li class="gnav__item">
                         <a href="#">イベント</a>
@@ -38,10 +39,10 @@
                         <a href="#">お問い合わせ</a>
                     </li>
                     <li class="gnav__item">
-                        <a href="#">よくある質問</a>
+                        <a href="./faq.html">よくある質問</a>
                     </li>
                     <li class="gnav__item">
-                        <a href="#">アクセス</a>
+                        <a href="./index.html#access">アクセス</a>
                     </li>
                 </ul>
             </nav>
@@ -51,7 +52,6 @@
     <main class="main">
         <section class="mainvisual">
             <div class="mainvisual__inner">
-
             </div>
         </section>
 
@@ -200,42 +200,87 @@
 
         <section class="service">
             <div class="service__inner">
+                <!-- PC -->
                 <div class="service__grid">
-                    <img src="./images/6.jpg" alt="コトづくり研究所の設計図" class="service__grid-img">
+                    <img src="./images/6.jpg" alt="コトづくり研究所" class="service__grid-img">
 
                     <div class="service__introduction">
-                        <article class="service__introduction-item unit">
+
+                        <article class="unit">
                             <h3 class="unit__title">コトコトカウンター</h3>
                             <p class="unit__text">
                                 ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト
                             </p>
-                            <button class="unit__btn"><a href="#">もっと見る</a></button>
+                            <a href="#" class="unit__btn">もっと見る</a>
                         </article>
 
-                        <article class="service__introduction-item unit">
+                        <article class="unit">
                             <h3 class="unit__title">HappyFood♪Lab.</h3>
                             <p class="unit__text">
                                 ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト
                             </p>
-                            <button class="unit__btn"><a href="#">もっと見る</a></button>
+                            <a href="#" class="unit__btn">もっと見る</a>
                         </article>
 
-                        <article class="service__introduction-item unit">
+                        <article class="unit">
                             <h3 class="unit__title">コトコトボックス</h3>
                             <p class="unit__text">
                                 ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト
                             </p>
-                            <button class="unit__btn"><a href="#">もっと見る</a></button>
+                            <a href="#" class="unit__btn">もっと見る</a>
                         </article>
 
-                        <article class="service__introduction-item unit">
+                        <article class="unit">
                             <h3 class="unit__title">へへへのおへや</h3>
                             <p class="unit__text">
                                 ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト
                             </p>
-                            <button class="unit__btn"><a href="#">もっと見る</a></button>
+                            <a href="#" class="unit__btn">もっと見る</a>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- tablet切り替え -->
+                <div class="service__swiper swiper">
+                    <div class="swiper-wrapper">
+                        <article class="swiper-slide service-card">
+                            <img src="./images/6.jpg" alt="" class="service-card__img">
+                            <h3 class="service-card__title">コトコトカウンター</h3>
+                            <p class="service-card__text">
+                                ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト
+                            </p>
+                            <a href="#" class="service-card__btn">もっと見る</a>
+                        </article>
+
+                        <article class="swiper-slide service-card">
+                            <img src="./images/6.jpg" alt="" class="service-card__img">
+                            <h3 class="service-card__title">HappyFood♪Lab.</h3>
+                            <p class="service-card__text">
+                                ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト
+                            </p>
+                            <a href="#" class="service-card__btn">もっと見る</a>
+                        </article>
+
+                        <article class="swiper-slide service-card">
+                            <img src="./images/6.jpg" alt="" class="service-card__img">
+                            <h3 class="service-card__title">コトコトボックス</h3>
+                            <p class="service-card__text">
+                                ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト
+                            </p>
+                            <a href="#" class="service-card__btn">もっと見る</a>
+                        </article>
+
+                        <article class="swiper-slide service-card">
+                            <img src="./images/6.jpg" alt="" class="service-card__img">
+                            <h3 class="service-card__title">へへへのおへや</h3>
+                            <p class="service-card__text">
+                                ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト
+                            </p>
+                            <a href="#" class="service-card__btn">もっと見る</a>
                         </article>
                     </div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
@@ -277,7 +322,7 @@
             </div>
         </section>
 
-        <section class="access">
+        <section class="access" id="access">
             <div class="access__inner">
                 <div class="access__unit">
                     <div class="access__map">
@@ -311,11 +356,12 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="footer__inner">
-            <span class="footer__copy">@ダミーダミーダミー</span>
+    <footer class="footertop">
+        <div class="footertop__inner">
+            <span class="footertop__copy">@ダミーダミーダミー</span>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
 
