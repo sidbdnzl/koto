@@ -775,7 +775,7 @@ footer
     margin: 250px 0;
 
     @include mq(tablet) {
-        margin-top: 150px;
+        margin: 150px 0;
     }
 
     &__inner {
@@ -832,7 +832,7 @@ footer
         justify-content: space-between;
         align-items: center;
         cursor: pointer;
-        transition: transform .4s ease;
+        transition: 0.3s;
 
         @include mq(tablet) {
             background-color: #E4E2DE;

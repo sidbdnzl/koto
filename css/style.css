@@ -714,7 +714,7 @@ footer
 }
 @media (width <= 760px) {
   .faq {
-    margin-top: 150px;
+    margin: 150px 0;
   }
 }
 .faq__inner {
@@ -768,7 +768,7 @@ footer
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  transition: transform 0.4s ease;
+  transition: 0.3s;
 }
 @media (width <= 760px) {
   .faq__unit {
