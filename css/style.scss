@@ -135,6 +135,48 @@ header
         }
     }
 
+    &__contact-fixed {
+        position: fixed;
+        top: 140px;
+        right: 30px;
+        width: 85px;
+        height: 85px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #E4E2DE;
+        border-radius: 50%;
+        font-size: 40px;
+        z-index: 1000;
+        transition: .2s;
+
+        &::before {
+            content: "お問い合わせはこちら";
+            position: absolute;
+            top: 50%;
+            right: 50px;
+            transform: translateY(-50%) translateX(10px);
+            opacity: 0;
+            background: #E4E2DE;
+            color: #0F3256;
+            padding: 25px 16px;
+            border-radius: 50px 0 0 50px;
+            white-space: nowrap;
+            font-size: 16px;
+            transition: .3s;
+            pointer-events: none;
+        }
+
+        &:hover {
+            background-color: #e68e00;
+            color: #E4E2DE;
+
+            &::before {
+                opacity: 1;
+                transform: translateY(-50%) translateX(0);
+            }
+        }
+    }
 }
 
 .gnav {
@@ -199,9 +241,49 @@ mainvisual
     background: url(../images/batako.png) no-repeat center center/cover;
     width: 100%;
     height: 90vh;
+    position: relative;
 
     &__inner {
         @include inner();
+    }
+
+    &__topics {
+        position: absolute;
+        right: 0px;
+        bottom: 20px;
+        background-color: #0F3256;
+        border-radius: 30px 0 0 30px;
+        width: 430px;
+        padding: 35px 70px 35px 50px;
+        color: #E4E2DE;
+
+        @include mq(tablet) {
+            background-color: #E4E2DE;
+            color: #0F3256;
+        }
+
+        &-header {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        &-title {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        &-list {
+            display: grid;
+            gap: 15px;
+        }
+    }
+
+    &__time {
+        font-size: 16px;
+        font-weight: 600;
     }
 }
 

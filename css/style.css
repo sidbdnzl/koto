@@ -107,6 +107,45 @@ header
 .header__hamburger.active .header__hamburger-bar:nth-child(3) {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
+.header__contact-fixed {
+  position: fixed;
+  top: 140px;
+  right: 30px;
+  width: 85px;
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E4E2DE;
+  border-radius: 50%;
+  font-size: 40px;
+  z-index: 1000;
+  transition: 0.2s;
+}
+.header__contact-fixed::before {
+  content: "お問い合わせはこちら";
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%) translateX(10px);
+  opacity: 0;
+  background: #E4E2DE;
+  color: #0F3256;
+  padding: 25px 16px;
+  border-radius: 50px 0 0 50px;
+  white-space: nowrap;
+  font-size: 16px;
+  transition: 0.3s;
+  pointer-events: none;
+}
+.header__contact-fixed:hover {
+  background-color: #e68e00;
+  color: #E4E2DE;
+}
+.header__contact-fixed:hover::before {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
 
 .gnav {
   position: fixed;
@@ -166,11 +205,47 @@ mainvisual
   background: url(../images/batako.png) no-repeat center center/cover;
   width: 100%;
   height: 90vh;
+  position: relative;
 }
 .mainvisual__inner {
   max-width: 1100px;
   width: 90%;
   margin-inline: auto;
+}
+.mainvisual__topics {
+  position: absolute;
+  right: 0px;
+  bottom: 20px;
+  background-color: #0F3256;
+  border-radius: 30px 0 0 30px;
+  width: 430px;
+  padding: 35px 70px 35px 50px;
+  color: #E4E2DE;
+}
+@media (width <= 760px) {
+  .mainvisual__topics {
+    background-color: #E4E2DE;
+    color: #0F3256;
+  }
+}
+.mainvisual__topics-header {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.mainvisual__topics-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+.mainvisual__topics-list {
+  display: grid;
+  gap: 15px;
+}
+.mainvisual__time {
+  font-size: 16px;
+  font-weight: 600;
 }
 
 /* ----------------------------------------------------------------
