@@ -1291,4 +1291,63 @@ footer
   -webkit-animation: anim-radio-2 0.3s linear;
           animation: anim-radio-2 0.3s linear;
 }
+
+.desktop-mainvisual {
+  padding: 300px 0;
+  background: url(../images/6.jpg) no-repeat center center/cover;
+  color: #E4E2DE;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.4);
+}
+.desktop-mainvisual__inner {
+  max-width: 1100px;
+  width: 90%;
+  margin-inline: auto;
+}
+.desktop-mainvisual__title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+.desktop-mainvisual__copy {
+  margin-bottom: 85px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.about__inner {
+  max-width: 1100px;
+  width: 90%;
+  margin-inline: auto;
+}
+
+.gallery__inner {
+  max-width: 1100px;
+  width: 90%;
+  margin-inline: auto;
+}
+.gallery__list {
+  width: 100%;
+}
+.gallery__row {
+  display: flex;
+  gap: 16px;
+}
+.gallery__row:not(:last-child) {
+  margin-bottom: 16px;
+}
+.gallery__row img {
+  height: 220px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+.large {
+  width: 30%;
+}
+
+.small {
+  width: 20%;
+}
 /*# sourceMappingURL=style.css.map */

@@ -1432,3 +1432,70 @@ footer
         }
     }
 }
+
+
+// *-------------------------------------
+// コトづくり研究所について
+// -------------------------------------*
+.desktop-mainvisual {
+    padding: 300px 0;
+    background: url(../images/6.jpg) no-repeat center center/cover;
+    color: #E4E2DE;
+    text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.4);
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: 600
+    }
+
+    &__copy {
+        margin-bottom: 85px;
+        font-size: 40px;
+        font-weight: bold;
+    }
+}
+
+.about {
+    &__inner {
+        @include inner();
+    }
+}
+
+.gallery {
+    &__inner {
+        @include inner();
+    }
+
+    &__list {
+        width: 100%;
+    }
+
+    &__row {
+        display: flex;
+        gap: 16px;
+
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+
+        img {
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px;
+        }
+    }
+}
+
+.large {
+    width: 30%;
+}
+
+.small {
+    width: 20%;
+}
