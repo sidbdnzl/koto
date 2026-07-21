@@ -6,28 +6,45 @@ hamburger.addEventListener("click", () => {
     gnav.classList.toggle("active");
 });
 
+document.querySelectorAll(".faqitem").forEach(item => {
+    const unit = item.querySelector(".faqunit");
+    const icon = item.querySelector("i");
+
+    unit.addEventListener("click", () => {
+        item.classList.toggle("active");
+
+        if (item.classList.contains("active")) {
+            icon.classList.replace("fa-plus", "fa-minus");
+        } else {
+            icon.classList.replace("fa-minus", "fa-plus");
+        }
+    });
+});
+
+const Mobileswiper = new Swiper('.mobileswiper', {
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: true,
+    },
+    pagination: {
+        el: '.mobileswiper-pagination',
+        clickable: true,
+    },
+});
 
 
+// *-------------------------------------
+// ここから俺が書く
+// -------------------------------------*
 
 
-
-
-
-
-
-
-
-
-
-
-
-const swiper = new Swiper('.swiper', {
+const Modalswiper = new Swiper('.modal__swiper', {
     autoplay: {
         delay: 2500,
         disableOnInteraction: true,
     },
     pagination: {
-        el: '.swiper-pagination',
+        el: '.modal__pagenation',
         clickable: true,
     },
 });
@@ -66,6 +83,21 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target === overlay) {
                 overlay.classList.remove('is-open');
             }
+        });
+    }
+});
+
+//メアドコピー 0718
+document.addEventListener('DOMContentLoaded', () => {
+    const emailBtn = document.querySelector('.price__gmail');
+
+    if (emailBtn) {
+        emailBtn.addEventListener('click', () => {
+            const emailText = 'koto.zukuri.lab@gmail.com';
+
+            navigator.clipboard.writeText(emailText).then(() => {
+                alert('メールアドレスをコピーしました！');
+            });
         });
     }
 });
