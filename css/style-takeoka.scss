@@ -242,6 +242,8 @@ html {
         margin-top: 10px;
         font-size: 24px;
         font-weight: bold;
+
+
     }
 
     &__pic-src {
@@ -391,6 +393,10 @@ html {
         font-size: 32px;
         font-weight: bold;
         text-align: center;
+
+        @include mq() {
+            font-size: 24px;
+        }
     }
 
     &__form {
@@ -426,7 +432,7 @@ html {
 
             @include mq() {
                 color: #0B3254;
-                background: #E4E2DE;
+                background-color: #E4E2DE;
             }
         }
 
@@ -521,8 +527,14 @@ html {
 // -------------------------------------*
 
 .flow {
-    margin-top: 100px;
+    margin-top: 250px;
     color: #0F3256;
+
+
+    @include mq() {
+        margin-top: 150px;
+        color: #E4E2DE;
+    }
 
     &__inner {
         @include inner();
@@ -532,18 +544,32 @@ html {
         font-size: 32px;
         font-weight: bold;
         text-align: center;
+
+        @include mq() {
+            font-size: 24px;
+        }
     }
 
     &__list {
         margin-top: 80px;
         display: grid;
         row-gap: 105px;
+
+        @include mq() {
+            margin-top: 50px;
+            row-gap: 40px;
+        }
     }
 
     &__item {
         display: flex;
         column-gap: 65px;
         align-items: center;
+
+        @include mq() {
+            column-gap: 30px;
+            align-items: start;
+        }
     }
 
     &__step {
@@ -555,26 +581,52 @@ html {
         font-weight: bold;
         text-align: center;
         border-radius: 100px;
+
+        @include mq() {
+            background-color: #E4E2DE;
+            color: #0F3256;
+            margin-top: 10px;
+            padding: 15px 21px;
+            font-size: 12px;
+        }
     }
 
     &__num {
         font-size: 32px;
+
+        @include mq() {
+            font-size: 18px;
+        }
     }
 
     &__content {
         display: grid;
         row-gap: 15px;
+
+        @include mq() {
+            row-gap: 10px;
+        }
     }
 
     &__subtitle {
         font-size: 24px;
         font-weight: bold;
+
+        @include mq() {
+            font-size: 20px;
+        }
     }
 }
 
 .voice {
     color: #0F3256;
     margin-top: 250px;
+
+
+    @include mq() {
+        margin-top: 150px;
+        color: #E4E2DE;
+    }
 
     &__inner {
         @include inner();
@@ -584,6 +636,10 @@ html {
         font-size: 32px;
         font-weight: bold;
         text-align: center;
+
+        @include mq() {
+            font-size: 24px;
+        }
     }
 
     &__list {
@@ -593,6 +649,7 @@ html {
         gap: 30px 40px;
 
         @include mq() {
+            margin-top: 30px;
             grid-template-columns: repeat(2, 1fr);
             gap: 40px 20px;
         }
@@ -608,6 +665,13 @@ html {
 
         position: relative; // 矢印の配置基準にする
         padding-right: 50px;
+
+        @include mq() {
+            width: 180px;
+            color: #0B3254;
+            background-color: #E4E2DE;
+            padding: 15px 30px;
+        }
     }
 
     &__pulldown {
@@ -622,6 +686,10 @@ html {
         top: 50%;
         transform: translateY(-50%);
         pointer-events: none;
+
+        @include mq() {
+            right: 20px;
+        }
     }
 
     &__select {
@@ -634,11 +702,17 @@ html {
         font-size: 20px;
         font-weight: bold;
         text-align: center;
+
+        @include mq() {
+            margin-top: 50px;
+            font-size: 16px;
+            column-gap: 15px;
+        }
     }
 
 
     &__impress {
-        width: 80px;
+        max-width: 80px;
         border-bottom: 1px solid;
     }
 }
@@ -650,6 +724,10 @@ html {
 .price {
     color: #0F3256;
     margin-top: 250px;
+
+    @include mq() {
+        display: none;
+    }
 
 
     &__inner {
@@ -671,13 +749,13 @@ html {
     &__body {
         margin-top: 80px;
         display: grid;
-        row-gap: 5px;
+        row-gap: 3px;
     }
 
     &__row {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        column-gap: 5px;
+        column-gap: 3px;
     }
 
     &__cell {

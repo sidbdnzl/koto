@@ -88,16 +88,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //メアドコピー 0718
-document.addEventListener('DOMContentLoaded', () => {
-    const emailBtn = document.querySelector('.price__gmail');
+document.querySelectorAll('.price__gmail').forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const email = btn.innerText.trim();
 
-    if (emailBtn) {
-        emailBtn.addEventListener('click', () => {
-            const emailText = 'koto.zukuri.lab@gmail.com';
+        // コピー処理
+        const textArea = document.createElement('textarea');
+        textArea.value = email;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
 
-            navigator.clipboard.writeText(emailText).then(() => {
-                alert('メールアドレスをコピーしました！');
-            });
-        });
-    }
+        alert('メールアドレスをコピーしました！');
+    });
 });
