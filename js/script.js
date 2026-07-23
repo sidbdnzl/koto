@@ -17,15 +17,41 @@ const Mobileswiper = new Swiper('.mobile__swiper', {
     },
 });
 
-const Modalswiper = new Swiper('.modalswiper', {
+const Modalswiper = new Swiper('.modal__swiper', {
     autoplay: {
         delay: 2500,
         disableOnInteraction: true,
     },
     pagination: {
-        el: '.modalpagenation',
+        el: '.modal__pagenation',
         clickable: true,
     },
+});
+
+const Aboutswiper = new Swiper('.about__swiper', {
+    loop: true,
+
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    navigation: {
+        nextEl: ".about__swiper-button-next",
+        prevEl: ".about__swiper-button-prev",
+    }
+});
+
+const MobileAboutswiper = new Swiper('.mobile-about__swiper', {
+    loop: true,
+
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    navigation: {
+        nextEl: ".mobile-about__swiper-button-next",
+        prevEl: ".mobile-about__swiper-button-prev",
+    }
 });
 
 
@@ -95,8 +121,13 @@ function updateClock() {
     const minutes = String(now.getMinutes()).padStart(2, "0");
     const seconds = String(now.getSeconds()).padStart(2, "0");
 
-    topicsTitle.textContent = `${month}/${day}のTOPICS`;
-    time.textContent = `${hours}:${minutes}:${seconds}`;
+    if (topicsTitle) {
+        topicsTitle.textContent = `${month}/${day}のTOPICS`;
+    }
+
+    if (time) {
+        time.textContent = `${hours}:${minutes}:${seconds}`;
+    }
 }
 
 updateClock();
