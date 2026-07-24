@@ -21,6 +21,25 @@ html {
   scroll-behavior: smooth;
 }
 
+.service-card__btn--contact {
+  color: #0B3254;
+  border-color: #0B3254;
+}
+@media (width <= 760px) {
+  .service-card__btn--contact {
+    color: #E4E2DE;
+    border-color: #E4E2DE;
+  }
+}
+.service-card__btn--contact::after {
+  background-color: #0B3254;
+}
+@media (width <= 760px) {
+  .service-card__btn--contact::after {
+    background-color: #E4E2DE;
+  }
+}
+
 .unit {
   position: relative;
   width: -webkit-fit-content;
@@ -68,11 +87,13 @@ html {
 }
 
 .events {
-  padding: 250px 0;
+  margin: 250px 0;
+  padding: 0;
   background-color: #E4E2DE;
 }
 @media (width <= 760px) {
   .events {
+    margin: 150px 0;
     background-color: #0F3256;
   }
 }
@@ -81,13 +102,27 @@ html {
   width: 90%;
   margin-inline: auto;
 }
+.events__title {
+  color: #0B3254;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+@media (width <= 760px) {
+  .events__title {
+    color: #E4E2DE;
+    font-size: 24px;
+  }
+}
 .events__list {
+  margin-top: 80px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px 40px;
 }
 @media (width <= 760px) {
   .events__list {
+    margin-top: 50px;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px 20px;
   }
@@ -296,13 +331,14 @@ html {
 }
 
 .contact {
-  padding: 250px 0;
+  margin: 250px 0;
+  padding: 0;
   color: #0B3254;
   background: #E4E2DE;
 }
 @media (width <= 760px) {
   .contact {
-    padding: 80px 0 150px 0;
+    margin: 150px 0;
     color: #E4E2DE;
     background: #0B3254;
   }

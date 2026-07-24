@@ -37,6 +37,26 @@ html {
     scroll-behavior: smooth;
 }
 
+.service-card__btn {
+    &--contact {
+        color: #0B3254;
+        border-color: #0B3254;
+
+        @include mq() {
+            color: #E4E2DE;
+            border-color: #E4E2DE;
+        }
+
+        &::after {
+            background-color: #0B3254;
+
+            @include mq() {
+                background-color: #E4E2DE;
+            }
+        }
+    }
+}
+
 .unit {
     position: relative;
     width: fit-content;
@@ -93,10 +113,12 @@ html {
 // -------------------------------------*
 
 .events {
-    padding: 250px 0;
+    margin: 250px 0;
+    padding: 0;
     background-color: #E4E2DE;
 
     @include mq() {
+        margin: 150px 0;
         background-color: #0F3256;
     }
 
@@ -104,12 +126,26 @@ html {
         @include inner();
     }
 
+    &__title {
+        color: #0B3254;
+        font-size: 32px;
+        font-weight: bold;
+        text-align: center;
+
+        @include mq() {
+            color: #E4E2DE;
+            font-size: 24px;
+        }
+    }
+
     &__list {
+        margin-top: 80px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 30px 40px;
 
         @include mq() {
+            margin-top: 50px;
             grid-template-columns: repeat(2, 1fr);
             gap: 40px 20px;
         }
@@ -372,12 +408,13 @@ html {
 
 
 .contact {
-    padding: 250px 0;
+    margin: 250px 0;
+    padding: 0;
     color: #0B3254;
     background: #E4E2DE;
 
     @include mq() {
-        padding: 80px 0 150px 0;
+        margin: 150px 0;
         color: #E4E2DE;
         background: #0B3254;
     }
