@@ -208,7 +208,6 @@ html {
 
         }
 
-        // 【修正点】SCSSのネスト内なので、クラス名を書かずにそのまま&で繋ぎます
         &::before {
             transform: translate(-50%, -50%) rotate(45deg);
         }
@@ -380,7 +379,7 @@ html {
     background: #E4E2DE;
 
     @include mq() {
-        padding: 70px 0;
+        padding: 80px 0 150px 0;
         color: #E4E2DE;
         background: #0B3254;
     }
@@ -721,9 +720,9 @@ html {
 // 料金について
 // -------------------------------------*
 
-.price {
+.pc-price {
     color: #0F3256;
-    margin-top: 250px;
+    margin: 250px 0;
 
     @include mq() {
         display: none;
@@ -761,7 +760,7 @@ html {
     &__cell {
         padding: 30px;
         background-color: #fff;
-        font-size: 32px;
+        font-size: 24px;
 
 
         &-rowtitle {
@@ -781,17 +780,259 @@ html {
         }
     }
 
+    &__caption {
+        font-size: 14px;
+    }
+
     &__tax {
-        font-size: 20px;
+        font-size: 18px;
     }
 
 
     &__attention {
         margin-top: 50px;
+
     }
 
     &__instagram-dm,
     &__gmail {
         border-bottom: 1px solid;
+    }
+}
+
+.sp-price {
+    display: none;
+    margin-bottom: 0;
+
+    @include mq() {
+        display: block;
+        margin-bottom: 150px;
+    }
+
+    &__inner {
+        @include mq() {
+            @include inner();
+        }
+    }
+
+    &__title {
+        margin-top: 120px;
+        color: #E4E2DE;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    &__tab {
+        @include mq() {
+            margin-top: 50px;
+            --cstm-tab-color: #E4E2DE;
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 20px;
+        }
+
+        &-label {
+            @include mq() {
+                color: #E4E2DE;
+                padding-bottom: 5px;
+                font-weight: bold;
+                text-align: center;
+                flex: 1;
+                cursor: pointer;
+                order: -1;
+                position: relative;
+                border-bottom: 1px solid #E4E2DE;
+
+                &:has(:checked) {
+                    color: #E68E00;
+                    border-bottom-color: #E68E00;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: calc(100%);
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 12px;
+                        height: 10px;
+                        background-color: #E68E00;
+                        clip-path: polygon(0 0, 100% 0, 50% 100%);
+                        z-index: 1;
+                    }
+
+                    +.sp-price__tab-content {
+                        display: block;
+                        animation: tabFadeIn 0.35s ease-in-out forwards;
+                    }
+
+                    @keyframes tabFadeIn {
+                        0% {
+                            opacity: 0;
+                        }
+
+                        25% {
+                            opacity: 0.2;
+                        }
+
+                        50% {
+                            opacity: 0.5;
+                        }
+
+                        75% {
+                            opacity: 0.75;
+                        }
+
+                        100% {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-content {
+            @include mq() {
+                margin-top: 30px;
+                display: none;
+                width: 100%;
+            }
+        }
+    }
+
+    &__switch {
+        @include mq() {
+            display: grid;
+            row-gap: 10px;
+        }
+
+        &--num {
+            @include mq() {
+                grid-auto-flow: column;
+                justify-content: center;
+                column-gap: 15px;
+            }
+        }
+
+        &-label {
+            @include mq() {
+                color: #E4E2DE;
+                width: fit-content;
+                margin: 0 auto;
+                padding: 15px 30px;
+                font-weight: bold;
+                border: 2px solid #E4E2DE;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:has(:checked) {
+                    background-color: #e68e00;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    &__table {
+
+        @include mq() {
+            margin-top: 30px;
+            width: 100%;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .is-text-fadeIn {
+            animation: textFadeIn 0.5s ease-in-out forwards;
+        }
+
+        @keyframes textFadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            25% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            75% {
+                opacity: 0.75;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__body {
+        @include mq() {
+            width: 100%;
+            display: grid;
+            row-gap: 5px;
+        }
+    }
+
+    &__row {
+        @include mq() {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 5px;
+        }
+    }
+
+    &__cell {
+        @include mq() {
+            display: grid;
+            grid-auto-flow: column;
+            align-items: center;
+            padding: 30px 10px;
+            color: #0F3256;
+            background-color: #fff;
+            font-size: 20px;
+            justify-content: center;
+        }
+
+        &-rowtitle {
+            @include mq() {
+                color: #E4E2DE;
+                background-color: #4B7892;
+                grid-column: 1 / -1;
+            }
+        }
+
+        &-coltitle {
+            @include mq() {
+                font-size: 16px;
+            }
+        }
+    }
+
+    &__tax {
+        @include mq() {
+            font-size: 14px;
+        }
+    }
+
+    &__attention {
+        @include mq() {
+            color: #E4E2DE;
+            margin-top: 50px;
+            display: grid;
+            row-gap: 15px;
+        }
+    }
+
+    &__instagram-dm,
+    &__gmail {
+        @include mq() {
+            border-bottom: 1px solid;
+        }
+
     }
 }
