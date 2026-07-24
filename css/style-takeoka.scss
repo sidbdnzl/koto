@@ -283,12 +283,39 @@ html {
 
         &-comment {
             display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: top;
+            grid-template-columns: auto 1fr; // アイコン(左) テキスト(右)
+            align-items: start;
 
+            // --- 共通の要素設定 ---
+            &-icon {
+                margin-top: 10px;
+                width: 60px;
+                height: auto;
+            }
+
+            &-text {
+                margin-left: 10px;
+                background-color: #fff;
+                padding: 15px 30px;
+                border-radius: 25px;
+                position: relative;
+
+                // 左側の三角形（デフォルト）
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 25px;
+                    transform: translateX(-100%);
+                    border-style: solid;
+                    border-width: 8px 12px 8px 0; // 上 右 下 左
+                    border-color: transparent #fff transparent transparent;
+                }
+            }
+
+            // --- 偶数番目（左右反対パターン） ---
             &:nth-child(even) {
-                grid-template-columns: auto 1fr;
-                order: 1;
+                grid-template-columns: 1fr auto; // テキスト(左) アイコン(右)
 
                 .modal__comments-comment-icon {
                     order: 2;
@@ -299,43 +326,14 @@ html {
                     margin-left: 0;
                     margin-right: 10px;
 
+                    // 右側の三角形に上書き
                     &::after {
                         left: auto;
-                        right: -5%;
-                        transform: rotate(-90deg);
-
-                        @include mq() {
-                            right: -8%;
-                        }
+                        right: 0;
+                        transform: translateX(100%);
+                        border-width: 8px 0 8px 12px; // 上 右 下 左
+                        border-color: transparent transparent transparent #fff;
                     }
-                }
-            }
-        }
-
-        &-comment-icon {
-            margin-top: 10px;
-            width: 60px;
-            height: auto;
-        }
-
-        &-comment-text {
-            margin-left: 10px;
-            background-color: #fff;
-            padding: 15px 30px;
-            border-radius: 25px;
-            position: relative;
-
-            &::after {
-                content: "";
-                position: absolute;
-                left: -5%;
-                top: 25px;
-                transform: rotate(90deg);
-                border: 10px solid transparent;
-                border-top: 15px solid #fff;
-
-                @include mq() {
-                    left: -8%;
                 }
             }
         }
