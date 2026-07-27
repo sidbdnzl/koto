@@ -6,8 +6,57 @@ hamburger.addEventListener("click", () => {
     gnav.classList.toggle("active");
 });
 
-document.querySelectorAll(".faqitem").forEach(item => {
-    const unit = item.querySelector(".faqunit");
+const Mobileswiper = new Swiper('.mobile__swiper', {
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: true,
+    },
+    pagination: {
+        el: '.mobile__swiper-pagination',
+        clickable: true,
+    },
+});
+
+const Modalswiper = new Swiper('.modal__swiper', {
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: true,
+    },
+    pagination: {
+        el: '.modal__pagenation',
+        clickable: true,
+    },
+});
+
+const Aboutswiper = new Swiper('.about__swiper', {
+    loop: true,
+
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    navigation: {
+        nextEl: ".about__swiper-button-next",
+        prevEl: ".about__swiper-button-prev",
+    }
+});
+
+const MobileAboutswiper = new Swiper('.mobile-about__swiper', {
+    loop: true,
+
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    navigation: {
+        nextEl: ".mobile-about__swiper-button-next",
+        prevEl: ".mobile-about__swiper-button-prev",
+    }
+});
+
+
+document.querySelectorAll(".faq__item").forEach(item => {
+    const unit = item.querySelector(".faq__unit");
     const icon = item.querySelector("i");
 
     unit.addEventListener("click", () => {
@@ -19,36 +68,6 @@ document.querySelectorAll(".faqitem").forEach(item => {
             icon.classList.replace("fa-minus", "fa-plus");
         }
     });
-});
-
-const Mobileswiper = new Swiper('.mobileswiper', {
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: true,
-    },
-    pagination: {
-        el: '.mobileswiper-pagination',
-        clickable: true,
-    },
-});
-
-const MobileAboutswiper = new Swiper('.mobile-about__swiper', {
-    loop: true,
-
-// *-------------------------------------
-// ここから俺が書く
-// -------------------------------------*
-
-
-const Modalswiper = new Swiper('.modal__swiper', {
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: true,
-    },
-    pagination: {
-        el: '.modal__pagenation',
-        clickable: true,
-    },
 });
 
 
@@ -88,6 +107,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+const time = document.querySelector(".mainvisual__time");
+const topicsTitle = document.querySelector(".mainvisual__topics-title");
+
+function updateClock() {
+    const now = new Date();
+
+    const month = now.getMonth() + 1;
+    const day = now.getDate();
+
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const seconds = String(now.getSeconds()).padStart(2, "0");
+
+    if (topicsTitle) {
+        topicsTitle.textContent = `${month}/${day}のTOPICS`;
+    }
+
+    if (time) {
+        time.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
 
 //メアドコピー 0718
 document.querySelectorAll('.pc-price__gmail, .sp-price__gmail').forEach((btn) => {
