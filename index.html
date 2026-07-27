@@ -27,7 +27,7 @@
                         <a href="./index.html">トップページ</a>
                     </li>
                     <li class="gnav__item">
-                        <a href="#">イベント</a>
+                        <a href="./event.html">イベント</a>
                     </li>
                     <li class="gnav__item">
                         <a href="#">コトづくりについて</a>
@@ -36,7 +36,7 @@
                         <a href="#">出店について</a>
                     </li>
                     <li class="gnav__item">
-                        <a href="#">お問い合わせ</a>
+                        <a href="./contact.html">お問い合わせ</a>
                     </li>
                     <li class="gnav__item">
                         <a href="./faq.html">よくある質問</a>
@@ -46,12 +46,32 @@
                     </li>
                 </ul>
             </nav>
+
+            <a href="#header__contact" class="header__contact">
+                <div class="header__contact-fixed">
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+                <span>お問い合わせはこちら</span>
+            </a>
         </div>
     </header>
 
     <main class="main">
         <section class="mainvisual">
             <div class="mainvisual__inner">
+                <div class="mainvisual__topics">
+                    <div class="mainvisual__topics-header">
+                        <p class="mainvisual__topics-title"></p>
+                        <div class="mainvisual__clock">
+                            <p class="mainvisual__time"></p>
+                        </div>
+                    </div>
+                    <ul class="mainvisual__topics-list">
+                        <li class="mainvisual__topics-item">ダミーダミーダミーダミーマルシェ開催！</li>
+                        <li class="mainvisual__topics-item">ダミーダミーダミーダミーマルシェ開催！</li>
+                        <li class="mainvisual__topics-item">ダミーダミーダミーダミーマルシェ開催！</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -242,9 +262,9 @@
                 </div>
 
                 <!-- tablet切り替え -->
-                <div class="service__swiper swiper">
-                    <div class="swiper-wrapper">
-                        <article class="swiper-slide service-card">
+                <div class="service__swiper swiper mobile__swiper">
+                    <div class="swiper-wrapper mobile__swiper-wrapper">
+                        <article class="swiper-slide mobile__swiper-slide service-card">
                             <img src="./images/6.jpg" alt="" class="service-card__img">
                             <h3 class="service-card__title">コトコトカウンター</h3>
                             <p class="service-card__text">
@@ -253,7 +273,7 @@
                             <a href="#" class="service-card__btn">もっと見る</a>
                         </article>
 
-                        <article class="swiper-slide service-card">
+                        <article class="swiper-slide mobile__swiper-slide service-card">
                             <img src="./images/6.jpg" alt="" class="service-card__img">
                             <h3 class="service-card__title">HappyFood♪Lab.</h3>
                             <p class="service-card__text">
@@ -262,7 +282,7 @@
                             <a href="#" class="service-card__btn">もっと見る</a>
                         </article>
 
-                        <article class="swiper-slide service-card">
+                        <article class="swiper-slide mobile__swiper-slide service-card">
                             <img src="./images/6.jpg" alt="" class="service-card__img">
                             <h3 class="service-card__title">コトコトボックス</h3>
                             <p class="service-card__text">
@@ -271,7 +291,7 @@
                             <a href="#" class="service-card__btn">もっと見る</a>
                         </article>
 
-                        <article class="swiper-slide service-card">
+                        <article class="swiper-slide mobile__swiper-slide service-card">
                             <img src="./images/6.jpg" alt="" class="service-card__img">
                             <h3 class="service-card__title">へへへのおへや</h3>
                             <p class="service-card__text">
@@ -280,7 +300,7 @@
                             <a href="#" class="service-card__btn">もっと見る</a>
                         </article>
                     </div>
-                    <div class="swiper-pagination"></div>
+                    <div class="swiper-pagination mobile__swiper-pagination"></div>
                 </div>
             </div>
         </section>

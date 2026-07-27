@@ -32,6 +32,8 @@ const Mobileswiper = new Swiper('.mobileswiper', {
     },
 });
 
+const MobileAboutswiper = new Swiper('.mobile-about__swiper', {
+    loop: true,
 
 // *-------------------------------------
 // ここから俺が書く
