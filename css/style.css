@@ -24,6 +24,10 @@ html {
 /* ----------------------------------------------------------------
 header
 ----------------------------------------------------------------*/
+.header {
+  position: relative;
+  z-index: 9999;
+}
 .header__inner {
   max-width: 1100px;
   width: 90%;
@@ -107,44 +111,50 @@ header
 .header__hamburger.active .header__hamburger-bar:nth-child(3) {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
-.header__contact-fixed {
-  position: fixed;
+.header__contact {
+  position: absolute;
   top: 140px;
   right: 30px;
+}
+.header__contact-fixed {
+  position: relative;
   width: 85px;
   height: 85px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #E4E2DE;
+  color: #0F3256;
   border-radius: 50%;
+  border: 4px solid #0F3256;
   font-size: 40px;
-  z-index: 1000;
   transition: 0.2s;
+  z-index: 100;
 }
-.header__contact-fixed::before {
-  content: "お問い合わせはこちら";
+.header__contact span {
   position: absolute;
   top: 50%;
-  right: 50px;
-  transform: translateY(-50%) translateX(10px);
-  opacity: 0;
+  right: 0;
+  transform: translateY(-50%);
   background: #E4E2DE;
   color: #0F3256;
-  padding: 25px 16px;
-  border-radius: 50px 0 0 50px;
+  padding: 0 120px 0 20px;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
   white-space: nowrap;
-  font-size: 16px;
+  opacity: 0;
   transition: 0.3s;
-  pointer-events: none;
+  z-index: 1;
 }
-.header__contact-fixed:hover {
-  background-color: #e68e00;
-  color: #E4E2DE;
-}
-.header__contact-fixed:hover::before {
+.header__contact:hover span {
   opacity: 1;
-  transform: translateY(-50%) translateX(0);
+  right: 0px;
+}
+.header__contact:hover .header__contact-fixed {
+  background-color: #e68e00;
+  color: #0F3256;
 }
 
 .gnav {
@@ -1377,6 +1387,12 @@ footer
 .mobile-about {
   margin: 150px 0 100px 0;
   color: #E4E2DE;
+  display: none;
+}
+@media (width <= 760px) {
+  .mobile-about {
+    display: block;
+  }
 }
 .mobile-about__inner {
   max-width: 1100px;

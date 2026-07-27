@@ -44,6 +44,9 @@ header
 ----------------------------------------------------------------*/
 
 .header {
+    position: relative;
+    z-index: 9999;
+
     &__inner {
         @include inner();
     }
@@ -135,48 +138,108 @@ header
         }
     }
 
-    &__contact-fixed {
-        position: fixed;
+    &__contact {
+        position: absolute;
         top: 140px;
         right: 30px;
-        width: 85px;
-        height: 85px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #E4E2DE;
-        border-radius: 50%;
-        font-size: 40px;
-        z-index: 1000;
-        transition: .2s;
 
-        &::before {
-            content: "お問い合わせはこちら";
+        &-fixed {
+            position: relative;
+            width: 85px;
+            height: 85px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #E4E2DE;
+            color: #0F3256;
+            border-radius: 50%;
+            border: 4px solid #0F3256;
+            font-size: 40px;
+            transition: .2s;
+            z-index: 100;
+        }
+
+
+        span {
             position: absolute;
             top: 50%;
-            right: 50px;
-            transform: translateY(-50%) translateX(10px);
-            opacity: 0;
+            right: 0;
+            transform: translateY(-50%);
             background: #E4E2DE;
             color: #0F3256;
-            padding: 25px 16px;
-            border-radius: 50px 0 0 50px;
+            padding: 0 120px 0 20px;
+            height: 85px;
+            display: flex;
+            align-items: center;
+            border-radius: 50px;
             white-space: nowrap;
-            font-size: 16px;
+            opacity: 0;
             transition: .3s;
-            pointer-events: none;
+            z-index: 1;
         }
 
-        &:hover {
-            background-color: #e68e00;
-            color: #E4E2DE;
+        &:hover span {
+            opacity: 1;
+            right: 0px;
+        }
 
-            &::before {
-                opacity: 1;
-                transform: translateY(-50%) translateX(0);
-            }
+        &:hover &-fixed {
+            background-color: #e68e00;
+            color: #0F3256;
         }
     }
+
+
+    // &__contact {
+
+    //     &-fixed {
+    //         top: 140px;
+    //         right: 30px;
+    //         width: 85px;
+    //         height: 85px;
+    //         display: flex;
+    //         justify-content: center;
+    //         align-items: center;
+    //         background-color: #E4E2DE;
+    //         border: 4px solid #0F3256;
+    //         border-radius: 50%;
+    //         font-size: 40px;
+    //         // transition: .2s;
+    //         isolation: isolate;
+
+
+
+    //         span {
+    //             position: absolute;
+    //             top: 50%;
+    //             right: 0;
+    //             display: inline-block;
+    //             transform: translateY(-50%) translateX(10px);
+    //             opacity: 0;
+    //             z-index: -1;
+    //             background: #E4E2DE;
+    //             color: #0F3256;
+    //             width: 300px;
+    //             padding: 35px 45px 35px 16px;
+    //             border-radius: 50px;
+    //             white-space: nowrap;
+    //             font-size: 16px;
+    //             transition: .3s;
+    //             pointer-events: none;
+    //         }
+
+    //         &:hover {
+    //             // background-color: #e68e00;
+    //             // color: #E4E2DE;
+
+    //             span {
+    //                 opacity: 1;
+    //                 transform: translateY(-50%) translateX(0);
+    //                 z-index: -1;
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 .gnav {
@@ -1539,6 +1602,11 @@ footer
 .mobile-about {
     margin: 150px 0 100px 0;
     color: #E4E2DE;
+    display: none;
+
+    @include mq(tablet) {
+        display: block;
+    }
 
     &__inner {
         @include inner();
