@@ -14,6 +14,10 @@
 
 <body>
     <header class="header">
+        <h1 class="header__logo">
+            <img src="./images/logo.png" alt="コトづくり研究所のロゴ">
+        </h1>
+
         <div class="header__inner">
             <button type="button" class="header__hamburger" id="hamburger">
                 <span class="header__hamburger-bar"></span>
@@ -48,7 +52,7 @@
                 </ul>
             </nav>
 
-            <a href="#header__contact" class="header__contact">
+            <a href="./contact.html" class="header__contact">
                 <div class="header__contact-fixed">
                     <i class="fa-regular fa-envelope"></i>
                 </div>
@@ -58,6 +62,10 @@
     </header>
     <main class="main">
         <section class="mainvisual">
+            <video class="mainvisual__video" autoplay muted loop playsinline>
+                <source src="./video/dummy-movie.mov" type="video/mp4">
+            </video>
+            <div class="mainvisual__bg"></div>
             <div class="mainvisual__inner">
                 <div class="mainvisual__topics">
                     <div class="mainvisual__topics-header">
@@ -78,7 +86,7 @@
         <section class="search">
             <div class="search__inner">
                 <h2 class="search__title">
-                    あなたの好きなものを選んでください
+                    あなたのやりたいこと、教えてください
                 </h2>
 
                 <form class="search__form" action="#" method="get">
