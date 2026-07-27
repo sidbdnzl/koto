@@ -598,6 +598,7 @@ html {
   margin-top: 80px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
   gap: 30px 40px;
 }
 @media (width <= 760px) {
@@ -663,8 +664,13 @@ html {
   }
 }
 .voice__impress {
-  max-width: 80px;
+  width: 80px;
   border-bottom: 1px solid;
+}
+@media (width <= 760px) {
+  .voice__impress {
+    width: 60px;
+  }
 }
 
 .pc-price {
@@ -843,10 +849,17 @@ html {
     width: 100%;
   }
 }
-@media (width <= 760px) {
+.sp-price__switch {
+  display: grid;
+  gap: 10px 0;
+  grid-auto-flow: row;
+}
+@media (width > 590px) {
   .sp-price__switch {
-    display: grid;
-    row-gap: 10px;
+    -moz-column-gap: 5px;
+         column-gap: 5px;
+    grid-auto-flow: column;
+    justify-content: center;
   }
 }
 @media (width <= 760px) {

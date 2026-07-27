@@ -249,3 +249,39 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTab2(true);
     }
 });
+
+
+
+// ===============================================
+// 出店者の声（初期表示で#ダミー1を自動選択＆絞り込み）
+// ===============================================
+document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.voice__item');
+    const select = document.querySelector('.voice__pulldown');
+
+    // 絞り込み処理
+    const filter = () => {
+        const selected = select.value.replace('#', '').trim();
+
+        items.forEach(item => {
+            // カード内に選択したタグの文字が含まれているか判定
+            const hasTag = item.querySelector('.unit-link').textContent.includes(selected);
+            item.style.display = hasTag ? '' : 'none';
+        });
+    };
+
+    // ① プルダウンを変えたとき
+    select.addEventListener('change', filter);
+
+    // ② カードの中のタグをクリックしたとき
+    document.querySelectorAll('.unit-link-src').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            select.value = link.textContent.trim(); // プルダウンを変更
+            filter(); // 再実行
+        });
+    });
+
+    // ③ ページを開いたときに初回実行
+    filter();
+});

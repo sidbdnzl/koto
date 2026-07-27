@@ -8,6 +8,7 @@
 
 $breakpoints: (
     "tablet": 760px,
+    "s-tablet":590px,
 );
 
 @mixin mq($breakpoint: tablet) {
@@ -676,11 +677,15 @@ html {
         }
     }
 
+
     &__list {
         margin-top: 80px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+        justify-content: center;
         gap: 30px 40px;
+
+
 
         @include mq() {
             margin-top: 30px;
@@ -746,8 +751,13 @@ html {
 
 
     &__impress {
-        max-width: 80px;
+        width: 80px;
         border-bottom: 1px solid;
+
+        @include mq() {
+            width: 60px;
+        }
+
     }
 }
 
@@ -936,10 +946,22 @@ html {
     }
 
     &__switch {
-        @include mq() {
-            display: grid;
-            row-gap: 10px;
+        display: grid;
+        gap: 10px 0;
+        grid-auto-flow: row;
+
+        @media (width > map-get($breakpoints, "s-tablet")) {
+            column-gap: 5px;
+            grid-auto-flow: column;
+            justify-content: center;
         }
+
+
+        // @include mq() {
+        //     display: grid;
+        //     gap: 10px 0;
+        //     grid-auto-flow: row;
+        // }
 
         &--num {
             @include mq() {
