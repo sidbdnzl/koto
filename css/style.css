@@ -421,7 +421,7 @@ mainvisual
   margin-top: 30px;
 }
 .service__inner {
-  max-width: 1100px;
+  max-width: 1000px;
   width: 90%;
   margin-inline: auto;
 }
@@ -561,9 +561,6 @@ mainvisual
 
 .service__swiper {
   display: none;
-  width: 100%;
-  height: auto;
-  padding-bottom: 40px;
 }
 @media (width <= 760px) {
   .service__swiper {
@@ -571,7 +568,13 @@ mainvisual
   }
 }
 
-.mobile__swiper-slide img {
+.swiper {
+  width: 100%;
+  height: auto;
+  padding-bottom: 40px;
+}
+
+.swiper-slide img {
   display: block;
   width: 100%;
   aspect-ratio: 9/6;
@@ -579,13 +582,14 @@ mainvisual
      object-fit: cover;
 }
 
-.mobile__swiper-pagination .swiper-pagination-bullet {
+.swiper-pagination-bullet {
   background-color: #E4E2DE;
-  opacity: 1;
+  opacity: 100%;
 }
 
-.mobile__swiper-pagination .swiper-pagination-bullet-active {
+.swiper-pagination-bullet-active {
   background-color: #e68e00;
+  z-index: 999;
 }
 
 /* ----------------------------------------------------------------
@@ -602,7 +606,7 @@ mainvisual
   }
 }
 .news__inner {
-  max-width: 1100px;
+  max-width: 1000px;
   width: 90%;
   margin-inline: auto;
 }
@@ -648,7 +652,7 @@ mainvisual
 アクセス
 ----------------------------------------------------------------*/
 .access {
-  padding-top: 250px;
+  margin-top: 250px;
   padding-bottom: 250px;
 }
 @media (width <= 760px) {
@@ -659,7 +663,7 @@ mainvisual
   }
 }
 .access__inner {
-  max-width: 1100px;
+  max-width: 1000px;
   width: 90%;
   margin-inline: auto;
 }
@@ -757,7 +761,7 @@ footer
   }
 }
 .footer__inner {
-  max-width: 1100px;
+  max-width: 1000px;
   width: 90%;
   margin-inline: auto;
 }
@@ -778,7 +782,7 @@ footer
   text-align: center;
 }
 .footertop__inner {
-  max-width: 1100px;
+  max-width: 1000px;
   width: 90%;
   margin-inline: auto;
 }
@@ -799,7 +803,7 @@ footer
   }
 }
 .faq__inner {
-  max-width: 1100px;
+  max-width: 1000px;
   width: 90%;
   margin-inline: auto;
 }
