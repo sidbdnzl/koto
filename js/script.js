@@ -305,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const items = document.querySelectorAll('.voice__item');
     const select = document.querySelector('.voice__pulldown');
-
+    if (!select || items.length === 0) return;
     // 絞り込み処理
     const filter = () => {
         const selected = select.value.replace('#', '').trim();
