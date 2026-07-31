@@ -44,26 +44,31 @@ header
 ----------------------------------------------------------------*/
 
 .header {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9999;
-
 
     &__inner {
+        position: fixed;
+        top: 0;
+        right: 0;
         height: 100%;
+        z-index: 9999;
     }
 
     &__logo {
-        position: absolute;
-        padding: 0 10%;
-        width: 100%;
+        position: fixed;
+        top: 0;
         left: 0;
+        z-index: 9999;
 
-        @include mq(tablet) {
-            padding-top: 50px;
+        img {
+            width: 80%;
+            margin: 50px 10% 0;
+            padding: 20px 30px;
+
+
+            @include mq(tablet) {
+                background-color: #E4E2DE;
+                border-radius: 50px;
+            }
         }
     }
 
@@ -214,7 +219,7 @@ header
 }
 
 .gnav {
-    position: relative;
+    position: absolute;
     width: 365px;
     height: 100%;
     background-color: #0F3256;
@@ -223,6 +228,8 @@ header
     transition: transform .4s ease;
     z-index: 1000;
     margin-left: auto;
+    top: 0;
+    right: 0;
 
     @include mq(tablet) {
         background-color: #E4E2DE;
@@ -275,6 +282,10 @@ mainvisual
     position: relative;
     height: 100vh;
 
+    @include mq(tablet) {
+        padding: 30px;
+    }
+
     &__inner {
         @include inner();
     }
@@ -298,8 +309,12 @@ mainvisual
         color: #E4E2DE;
 
         @include mq(tablet) {
+            right: 30px;
+            bottom: 80px;
+            width: 300px;
             background-color: #E4E2DE;
             color: #0F3256;
+            padding: 25px 60px 25px 40px;
         }
 
         &-header {
@@ -307,12 +322,20 @@ mainvisual
             gap: 30px;
             align-items: center;
             margin-bottom: 30px;
+
+            @include mq(tablet) {
+                margin-bottom: 15px;
+            }
         }
 
         &-title {
             margin: 0;
             font-size: 20px;
             font-weight: bold;
+
+            @include mq(tablet) {
+                font-size: 18px;
+            }
         }
 
         &-list {
@@ -521,9 +544,12 @@ mainvisual
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 25px;
             position: sticky;
             top: 0;
+
+            img {
+                border-radius: 25px;
+            }
         }
 
         @include mq(tablet) {
@@ -715,6 +741,11 @@ mainvisual
             position: relative;
             padding-right: 50px;
 
+            @include mq(tablet) {
+                margin-right: 20px;
+                padding-right: 20px;
+            }
+
             &::after {
                 content: "";
                 position: absolute;
@@ -727,6 +758,7 @@ mainvisual
 
                 @include mq(tablet) {
                     background-color: #E4E2DE;
+                    height: 60px;
                 }
             }
         }
@@ -737,6 +769,10 @@ mainvisual
 
         &-day {
             font-size: 32px;
+
+            @include mq(tablet) {
+                font-size: 24px;
+            }
         }
     }
 
@@ -965,6 +1001,10 @@ footer
             color: #0F3256;
             font-size: 18px;
             font-weight: 600;
+        }
+
+        &-btn {
+            pointer-events: none;
         }
 
         &:hover {
@@ -1327,7 +1367,6 @@ footer
 // お問い合わせ
 // -------------------------------------*
 
-
 .contact {
     padding: 250px 0;
     color: #0B3254;
@@ -1686,6 +1725,74 @@ footer
 
         &-small {
             width: 20%;
+        }
+    }
+}
+
+
+// *-------------------------------------
+// お知らせ：シングルページ
+// -------------------------------------*
+
+.single {
+    margin: 250px 0;
+    color: #0F3256;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
+
+    @include mq(tablet) {
+        margin: 150px 0;
+        color: #E4E2DE;
+    }
+
+    &__inner {
+        @include inner();
+    }
+
+    &__date {
+        margin-bottom: 10px;
+
+        @include mq(tablet) {
+            margin-bottom: 5px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 60px;
+        font-size: 32px;
+        font-weight: bold;
+
+        @include mq(tablet) {
+            margin-bottom: 40px;
+            font-size: 24px;
+        }
+    }
+
+    &__text {
+        margin-bottom: 25px;
+        font-size: 18px;
+
+        @include mq(tablet) {
+            font-size: 16px;
+        }
+    }
+
+    &__pics {
+        margin: 70px 0;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 40px;
+
+        @include mq(tablet) {
+            margin: 40px 0;
+            display: block;
+        }
+    }
+
+    &__pic {
+        @include mq(tablet) {
+            margin-bottom: 30px;
         }
     }
 }

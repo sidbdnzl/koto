@@ -24,26 +24,28 @@ html {
 /* ----------------------------------------------------------------
 header
 ----------------------------------------------------------------*/
-.header {
+.header__inner {
   position: fixed;
   top: 0;
   right: 0;
-  width: 100vw;
-  height: 100vh;
+  height: 100%;
   z-index: 9999;
 }
-.header__inner {
-  height: 100%;
-}
 .header__logo {
-  position: absolute;
-  padding: 0 10%;
-  width: 100%;
+  position: fixed;
+  top: 0;
   left: 0;
+  z-index: 9999;
+}
+.header__logo img {
+  width: 80%;
+  margin: 50px 10% 0;
+  padding: 20px 30px;
 }
 @media (width <= 760px) {
-  .header__logo {
-    padding-top: 50px;
+  .header__logo img {
+    background-color: #E4E2DE;
+    border-radius: 50px;
   }
 }
 .header__hamburger {
@@ -179,7 +181,7 @@ header
 }
 
 .gnav {
-  position: relative;
+  position: absolute;
   width: 365px;
   height: 100%;
   background-color: #0F3256;
@@ -188,6 +190,8 @@ header
   transition: transform 0.4s ease;
   z-index: 1000;
   margin-left: auto;
+  top: 0;
+  right: 0;
 }
 @media (width <= 760px) {
   .gnav {
@@ -236,6 +240,11 @@ mainvisual
   position: relative;
   height: 100vh;
 }
+@media (width <= 760px) {
+  .mainvisual {
+    padding: 30px;
+  }
+}
 .mainvisual__inner {
   max-width: 1100px;
   width: 90%;
@@ -261,8 +270,12 @@ mainvisual
 }
 @media (width <= 760px) {
   .mainvisual__topics {
+    right: 30px;
+    bottom: 80px;
+    width: 300px;
     background-color: #E4E2DE;
     color: #0F3256;
+    padding: 25px 60px 25px 40px;
   }
 }
 .mainvisual__topics-header {
@@ -271,10 +284,20 @@ mainvisual
   align-items: center;
   margin-bottom: 30px;
 }
+@media (width <= 760px) {
+  .mainvisual__topics-header {
+    margin-bottom: 15px;
+  }
+}
 .mainvisual__topics-title {
   margin: 0;
   font-size: 20px;
   font-weight: bold;
+}
+@media (width <= 760px) {
+  .mainvisual__topics-title {
+    font-size: 18px;
+  }
 }
 .mainvisual__topics-list {
   display: grid;
@@ -464,10 +487,12 @@ mainvisual
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 25px;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+}
+.service__grid-img img {
+  border-radius: 25px;
 }
 @media (width <= 760px) {
   .service__grid {
@@ -649,6 +674,12 @@ mainvisual
   position: relative;
   padding-right: 50px;
 }
+@media (width <= 760px) {
+  .news__item-date {
+    margin-right: 20px;
+    padding-right: 20px;
+  }
+}
 .news__item-date::after {
   content: "";
   position: absolute;
@@ -662,6 +693,7 @@ mainvisual
 @media (width <= 760px) {
   .news__item-date::after {
     background-color: #E4E2DE;
+    height: 60px;
   }
 }
 .news__item_year {
@@ -669,6 +701,11 @@ mainvisual
 }
 .news__item-day {
   font-size: 32px;
+}
+@media (width <= 760px) {
+  .news__item-day {
+    font-size: 24px;
+  }
 }
 
 /* ----------------------------------------------------------------
@@ -884,6 +921,9 @@ footer
     font-size: 18px;
     font-weight: 600;
   }
+}
+.faq__unit-btn {
+  pointer-events: none;
 }
 .faq__unit:hover {
   color: #e68e00;
@@ -1512,5 +1552,69 @@ footer
 }
 .gallery__row-small {
   width: 20%;
+}
+
+.single {
+  margin: 250px 0;
+  color: #0F3256;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+}
+@media (width <= 760px) {
+  .single {
+    margin: 150px 0;
+    color: #E4E2DE;
+  }
+}
+.single__inner {
+  max-width: 1100px;
+  width: 90%;
+  margin-inline: auto;
+}
+.single__date {
+  margin-bottom: 10px;
+}
+@media (width <= 760px) {
+  .single__date {
+    margin-bottom: 5px;
+  }
+}
+.single__title {
+  margin-bottom: 60px;
+  font-size: 32px;
+  font-weight: bold;
+}
+@media (width <= 760px) {
+  .single__title {
+    margin-bottom: 40px;
+    font-size: 24px;
+  }
+}
+.single__text {
+  margin-bottom: 25px;
+  font-size: 18px;
+}
+@media (width <= 760px) {
+  .single__text {
+    font-size: 16px;
+  }
+}
+.single__pics {
+  margin: 70px 0;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 40px;
+}
+@media (width <= 760px) {
+  .single__pics {
+    margin: 40px 0;
+    display: block;
+  }
+}
+@media (width <= 760px) {
+  .single__pic {
+    margin-bottom: 30px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

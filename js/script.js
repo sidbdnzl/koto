@@ -57,9 +57,19 @@ const MobileAboutswiper = new Swiper('.mobile-about__swiper', {
 
 document.querySelectorAll(".faq__item").forEach(item => {
     const unit = item.querySelector(".faq__unit");
-    const icon = item.querySelector("i");
+    const icon = item.querySelector(".faq__unit-btn");
 
     unit.addEventListener("click", () => {
+        item.classList.toggle("active");
+
+        if (item.classList.contains("active")) {
+            icon.classList.replace("fa-plus", "fa-minus");
+        } else {
+            icon.classList.replace("fa-minus", "fa-plus");
+        }
+    });
+
+    icon.addEventListener("click", () => {
         item.classList.toggle("active");
 
         if (item.classList.contains("active")) {
