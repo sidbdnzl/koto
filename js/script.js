@@ -342,3 +342,65 @@ document.addEventListener('DOMContentLoaded', () => {
     // ③ ページを開いたときに初回実行
     filter();
 });
+
+
+//検索‼️
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. index.html：スライダーのタグをクリックしたとき
+    const triangles = document.querySelectorAll('.slidertriangle');
+
+    triangles.forEach(triangle => {
+        triangle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const keyword = triangle.querySelector('span').textContent.trim();
+            window.location.href = `event.html ? q = ${encodeURIComponent(keyword)}`;
+        });
+    });
+
+
+    // 2. event.html：検索ワードでカードを絞り込む
+    const eventsTitle = document.querySelector('.eventstitle');
+    const eventItems = document.querySelectorAll('.events__item');
+
+    if (eventsTitle && eventItems.length > 0) {
+
+        // URLから検索ワード（qの値）を取得
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = (urlParams.get('q') || '').replace(/^#/, '').trim();
+
+        // 検索ワードがない場合は全件表示
+        if (query === '') {
+            eventsTitle.textContent = 'すべてのイベント';
+            return;
+        }
+
+        // タイトルを変更
+        eventsTitle.textContent = `${query}`;
+
+        // カードを1つずつチェック
+        eventItems.forEach(item => {
+
+            // タグ（#コーヒーなど）の中にぴったり一致するものがあるか確認
+            const tags = item.querySelectorAll('.unit-link-src');
+            let isTagMatch = false;
+
+            tags.forEach(tag => {
+                const tagText = tag.textContent.replace(/^#/, '').trim();
+                if (tagText === query) {
+                    isTagMatch = true;
+                }
+            });
+
+            // カード全体の文章の中に検索ワードが含まれているか確認
+            const isTextMatch = item.textContent.includes(query);
+
+            // タグが一致するか、文章に含まれていれば表示
+            if (isTagMatch || isTextMatch) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+});
