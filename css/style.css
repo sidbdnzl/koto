@@ -192,6 +192,12 @@ header
   width: 45%;
   margin-top: 20px;
 }
+@media (width <= 760px) {
+  .header.is-scrolled .header__logo img {
+    width: 80%;
+    margin-top: 50px;
+  }
+}
 
 .gnav {
   position: absolute;
