@@ -348,13 +348,13 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
 
     // 1. index.html：スライダーのタグをクリックしたとき
-    const triangles = document.querySelectorAll('.slidertriangle');
+    const triangles = document.querySelectorAll('.slider__triangle');
 
     triangles.forEach(triangle => {
         triangle.addEventListener('click', (e) => {
             e.preventDefault();
             const keyword = triangle.querySelector('span').textContent.trim();
-            window.location.href = `event.html ? q = ${encodeURIComponent(keyword)}`;
+            window.location.href = `event.html?q=${encodeURIComponent(keyword)}`;
         });
     });
 
