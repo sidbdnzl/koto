@@ -35,12 +35,21 @@ header
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   z-index: 9999;
+  pointer-events: none;
+}
+.header__logo-link {
+  display: block;
+  pointer-events: auto;
 }
 .header__logo img {
+  display: block;
   width: 80%;
-  margin: 50px 10% 0;
+  margin: 50px auto 0;
   padding: 20px 30px;
+  box-sizing: border-box;
+  transition: width 0.3s ease, margin-top 0.3s ease;
 }
 @media (width <= 760px) {
   .header__logo img {
@@ -178,6 +187,10 @@ header
 .header__contact:hover .header__contact-fixed {
   background-color: #e68e00;
   color: #0F3256;
+}
+.header.is-scrolled .header__logo img {
+  width: 45%;
+  margin-top: 20px;
 }
 
 .gnav {

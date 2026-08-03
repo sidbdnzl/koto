@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // 2. event.html：検索ワードでカードを絞り込む
-    const eventsTitle = document.querySelector('.eventstitle');
+    const eventsTitle = document.querySelector('.events__title');
     const eventItems = document.querySelectorAll('.events__item');
 
     if (eventsTitle && eventItems.length > 0) {
@@ -403,4 +403,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.header');
+    const heading = document.querySelector('main h2');
+
+    if (!header || !heading) return;
+
+    const updateHeader = () => {
+        const headingBottom = heading.getBoundingClientRect().bottom;
+        const shrinkStart = 150; // 数字を大きくすると、より早く小さくなる
+
+        header.classList.toggle('is-scrolled', headingBottom <= shrinkStart);
+    };
+
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('resize', updateHeader);
+    updateHeader(); // ページを開いた直後にも判定
 });
