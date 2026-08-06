@@ -76,6 +76,8 @@ header
     top: auto;
     bottom: 30px;
     right: 30px;
+    width: 75px;
+    height: 75px;
   }
 }
 .header__hamburger-bar {
@@ -144,7 +146,7 @@ header
 @media (width <= 760px) {
   .header__contact {
     top: auto;
-    bottom: 150px;
+    bottom: 120px;
     right: 30px;
   }
 }
@@ -162,6 +164,13 @@ header
   font-size: 40px;
   transition: 0.2s;
   z-index: 100;
+}
+@media (width <= 760px) {
+  .header__contact-fixed {
+    width: 75px;
+    height: 75px;
+    font-size: 30px;
+  }
 }
 .header__contact span {
   position: absolute;
